@@ -8,6 +8,12 @@
       <img
         class="main__product__img"
         src="../assets/maasloop_orange_open_sm.png"
+        srcset="
+          ../assets/maasloop_orange_open_sm.png 360w,
+          ../assets/maasloop_orange_open_bg.png 861w
+        "
+        sizes="(min-width: 990px) 861px,
+            360px"
         alt="Product photo"
       />
       <img
@@ -46,9 +52,11 @@ export default {
   padding-top: 13.8em;
   text-align: center;
   line-height: 4.3rem;
+  max-width: 144em;
+  margin: auto;
 
-  &__heading {
-    width: 9.15em;
+  @media screen and (min-width: 62em) {
+    padding-top: 16.6em;
   }
 
   &__product {
@@ -57,9 +65,13 @@ export default {
 
     &__bag {
       position: absolute;
-      right: 2.9em;
+      right: 2em;
       bottom: 3.5em;
       cursor: pointer;
+
+      @media screen and (min-width: 62em) {
+        display: none;
+      }
     }
   }
 
@@ -73,15 +85,39 @@ export default {
     height: 31.3em;
     border-radius: 1em;
 
+    @media screen and (min-width: 62em) {
+      max-width: 98%;
+      height: 32em;
+    }
+
     h2 {
       width: 11.7em;
       margin-bottom: 1.04em;
+
+      @media screen and (min-width: 31em) {
+        width: 15em;
+      }
+
+      @media screen and (min-width: 62em) {
+        width: 20em;
+        margin-bottom: 1em;
+      }
     }
 
     p {
       font-size: 1.6rem;
       line-height: 2.5rem;
       width: 20em;
+
+      @media screen and (min-width: 31em) {
+        width: 30em;
+      }
+
+      @media screen and (min-width: 62em) {
+        font-size: 2rem;
+        line-height: 3.2rem;
+        width: 35em;
+      }
     }
   }
 }

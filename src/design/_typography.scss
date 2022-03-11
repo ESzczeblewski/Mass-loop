@@ -18,13 +18,26 @@ body {
 h1 {
   font-size: 3.5rem;
   font-weight: $font-bold;
+  line-height: 4.3rem;
   color: $main-black;
+  width: 89%;
+  max-width: 16em;
+
+  @media screen and (min-width: 62em) {
+    line-height: 6.7rem;
+    font-size: 5.5rem;
+  }
 }
 
 h2 {
   font-size: 2.4rem;
   font-weight: $font-bold;
   line-height: 2.9rem;
+
+  @media screen and (min-width: 62em) {
+    font-size: 4rem;
+    line-height: 4.9rem;
+  }
 }
 
 h3 {
