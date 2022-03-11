@@ -19,9 +19,19 @@
   height: 24em;
   border-radius: .93em;
 
+  @media screen and (min-width: 64em) {
+    margin-top: 0;
+    width: 49.1em;
+    height: 26em;
+  }
+
   h4 {
     margin-top: 2.5em;
     width: 15em;
+
+    @media screen and (min-width: 64em) {
+      width: 16em
+    }
   }
 
   input {
@@ -32,6 +42,12 @@
     border: 1px solid $main-black;
     border-radius: .93em;
     color: $gray-form;
+
+    @media screen and (min-width: 64em) {
+      width: 11.2em;
+      font-size: 2rem;
+      padding: 1.13em 0;
+    }
 
     &:focus {
         outline-color: none;

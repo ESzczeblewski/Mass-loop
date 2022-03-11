@@ -70,12 +70,27 @@ export default {
   padding: 0 2em;
   margin-top: 6em;
 
+  @media screen and (min-width: 64em) {
+    margin-top: 9em;
+  }
+
   p {
     font-size: 1.6rem;
     margin-top: 1.56em;
+
+    @media screen and (min-width: 64em) {
+      font-size: 2rem;
+      margin-top: 1.9em;
+    }
   }
 
   &__inputs {
+    @media screen and (min-width: 64em) {
+      display: flex;
+      align-items: center;
+      margin-top: 8.3em;
+    }
+
     &__containers,
     &__cost {
       @include calc-input;
@@ -83,6 +98,11 @@ export default {
 
     &__cost {
       margin-top: 2em;
+
+      @media screen and (min-width: 64em) {
+        margin-top: 0;
+        margin-left: 3em;
+      }
     }
   }
 
@@ -98,6 +118,14 @@ export default {
     border-radius: 0.93em;
     color: $reg-white;
 
+    @media screen and (min-width: 64em) {
+      flex-direction: row;
+      justify-content: center;
+      width: 101.2em;
+      height: 12.7em;
+      margin-top: 3em;
+    }
+
     > h4:first-of-type {
       display: flex;
       flex-direction: column;
@@ -112,6 +140,11 @@ export default {
       margin-top: 0.55em;
       opacity: 0.5;
 
+      @media screen and (min-width: 64em) {
+        margin-left: 0.85em;
+        margin-right: 0.85em;
+      }
+
       &.active {
         color: $main-orange;
         opacity: 1;
@@ -120,6 +153,14 @@ export default {
 
     > h4:nth-of-type(3) {
       margin-top: 0.95em;
+    }
+
+    > h4:first-of-type,
+    > h4:nth-of-type(2),
+    > h4:nth-of-type(3) {
+      @media screen and (min-width: 64em) {
+        margin-top: 0em;
+      }
     }
   }
 }
