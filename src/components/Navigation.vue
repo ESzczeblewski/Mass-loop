@@ -15,8 +15,16 @@
     </div>
     <div class="nav__container">
       <div class="nav__container__lang">
-        <p>PL</p>
+        <div @click="openLangMenu()">PL</div>
         <img src="../assets/dropdown-arrow.png" alt="Dropdown arrow" />
+        <div
+          class="dropdown"
+          :class="{ active: this.$store.state.openLangMenu }"
+        >
+          <div @click="openLangMenu()">EN</div>
+          <div @click="openLangMenu()">DE</div>
+          <div @click="openLangMenu()">GB</div>
+        </div>
       </div>
       <button
         class="nav__container__hamburger"
@@ -46,18 +54,13 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["openNav"]),
+    ...mapMutations(["openNav", "openLangMenu"]),
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../design";
-
-.wrapper {
-  position: relative;
-  max-width: 122em;
-}
 
 .nav {
   max-width: 122em;
@@ -98,13 +101,41 @@ export default {
     display: flex;
 
     &__lang {
+      position: relative;
       display: flex;
       align-items: center;
       margin-right: 3.3em;
+      cursor: pointer;
 
-      p {
+      div {
         font-size: 1.6rem;
+      }
+
+      > div:first-of-type {
         margin-right: 0.3em;
+      }
+
+      .dropdown {
+        background-color: $reg-white;
+        position: absolute;
+        left: -1.2em;
+        top: 2.2em;
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.2s ease;
+
+        > * {
+          padding: 0.75em 0.6em;
+          margin-right: 0.7em;
+          margin-left: 0.7em;
+          border-top: 1px solid #c2c2c2;
+        }
+      }
+      .active {
+        opacity: 1;
+        pointer-events: all;
+        transition: all 0.2s ease;
       }
     }
 
