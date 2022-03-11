@@ -65,7 +65,7 @@ export default {
   padding-left: 2em;
   padding-right: 2em;
   box-shadow: 0px 4px 24px -5px rgba(0, 0, 0, 0.15);
-  background-color: $main-background;
+  background-color: $reg-white;
   z-index: 999;
 
   &__logo {

@@ -7,3 +7,40 @@
   background-color: $reg-black;
   position: absolute;
 }
+
+@mixin calc-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 6em;
+  background-color: $gray-calc-background;
+  width: 32em;
+  height: 24em;
+  border-radius: .93em;
+
+  h4 {
+    margin-top: 2.5em;
+    width: 15em;
+  }
+
+  input {
+    font-size: 1.6rem;
+    margin-top: 2.5em;
+    padding: 1.5em .8em;
+    text-align: center;
+    border: 1px solid $main-black;
+    border-radius: .93em;
+    color: $gray-form;
+
+    &:focus {
+        outline-color: none;
+    }
+  }
+  .active {
+    border-color: $main-orange;
+    color: $main-black;
+    font-weight: $font-med;
+  }
+
+}
