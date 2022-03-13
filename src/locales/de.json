@@ -1,0 +1,27 @@
+{
+  "heading": "Ein intelligenter Brecher, der Glas in Sand verwandelt.",
+  "nav": {
+    "profits": "Zählen Sie Ihre Gewinne",
+    "aboutProduct": "Über das Produkt",
+    "contact": "Kontakt",
+    "faq": "FAQ",
+    "buy": "KAUFEN"
+  },
+  "description": {
+    "heading": "Zahlen Sie 5-mal weniger für die Entsorgung von Glasabfällen.",
+    "paragraph": "Der Crusher zerkleinert den Glasabfall und Sie bezahlen FÜNF MAL NIE weniger Rechnungen für deren Entsorgung."
+  },
+  "calculator": {
+    "heading": "Wie viel werden Sie sparen?",
+    "paragraph": "Die Rechnung ist einfach.",
+    "firstQuestion": "Wie viele Glasbehälter füllen Sie pro Monat?",
+    "secondQuestion": "Wie viel zahlen Sie für den Export eines Glasbehälters?",
+    "savings1": "Dank des Brechers sparen Sie",
+    "savings2": "jährlich."
+  },
+  "footer": {
+    "paragraph": "Wofür geben Sie das gesparte Geld aus?",
+    "buy": "KAUFEN",
+    "summary": "Klingt gut? Vorsichtig sein. Wir fangen gerade erst an!"
+  }
+}

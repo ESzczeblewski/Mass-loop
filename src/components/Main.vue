@@ -2,7 +2,7 @@
   <app-nav></app-nav>
   <main class="main">
     <h1 class="main__heading">
-      Inteligentna kruszarka, która zmienia szkło w piasek.
+      {{ $t("heading") }}
     </h1>
     <div class="main__product">
       <img
@@ -23,11 +23,8 @@
       />
     </div>
     <div class="main__description">
-      <h2>Płać 5 razy mniej za wywóz odpadów szkalnych.</h2>
-      <p>
-        Kruszarka zmniejsza gabaryty szklanych śmieci, a Ty płacisz
-        PIĘ-CIO-KROT-NIE niższe rachunki za ich wywóz.
-      </p>
+      <h2>{{ $t("description.heading") }}</h2>
+      <p>{{ $t("description.paragraph") }}</p>
     </div>
   </main>
 </template>

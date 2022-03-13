@@ -1,10 +1,10 @@
 <template>
   <section class="calc">
-    <h2>Ile zaoszczędzisz?</h2>
-    <p>Rachunek jest prosty.</p>
+    <h2>{{ $t("calculator.heading") }}</h2>
+    <p>{{ $t("calculator.paragraph") }}</p>
     <div class="calc__inputs">
       <div class="calc__inputs__containers">
-        <h4>Ile pojemników na szkło zapełniasz miesięcznie?</h4>
+        <h4>{{ $t("calculator.firstQuestion") }}</h4>
         <input
           @click="activate"
           :class="{ active: calcActive }"
@@ -13,7 +13,7 @@
         />
       </div>
       <div class="calc__inputs__cost">
-        <h4>Ile płacisz za wywóz jednego pojemnika na szkło?</h4>
+        <h4>{{ $t("calculator.secondQuestion") }}</h4>
         <input
           @click="activate"
           :class="{ active: calcActive }"
@@ -23,11 +23,11 @@
       </div>
     </div>
     <div class="calc__result">
-      <h4>Dzięki kruszarce zaoszczędzisz</h4>
+      <h4>{{ $t("calculator.savings1") }}</h4>
       <h4 :class="{ active: calcActive }">
         <span>{{ calcResult }}</span> zł
       </h4>
-      <h4>rocznie.</h4>
+      <h4>{{ $t("calculator.savings2") }}</h4>
     </div>
   </section>
 </template>

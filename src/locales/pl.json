@@ -1,0 +1,27 @@
+{
+  "heading": "Inteligentna kruszarka, która zmienia szkło w piasek.",
+  "nav": {
+    "profits": "Policz zyski",
+    "aboutProduct": "O produkcie",
+    "contact": "Kontakt",
+    "faq": "FAQ",
+    "buy": "KUP"
+  },
+  "description": {
+    "heading": "Płać 5 razy mniej za wywóz odpadów szkalnych.",
+    "paragraph": "Kruszarka zmniejsza gabaryty szklanych śmieci, a Ty płacisz PIĘ-CIO-KROT-NIE niższe rachunki za ich wywóz."
+  },
+  "calculator": {
+    "heading": "Ile zaoszczędzisz?",
+    "paragraph": "Rachunek jest prosty.",
+    "firstQuestion": "Ile pojemników na szkło zapełniasz miesięcznie?",
+    "secondQuestion": "Ile płacisz za wywóz jednego pojemnika na szkło?",
+    "savings1": "Dzięki kruszarce zaoszczędzisz",
+    "savings2": "rocznie."
+  },
+  "footer": {
+    "paragraph": "To na co wydasz zaoszczędzoną gotówkę?",
+    "buy": "KUP",
+    "summary": "Brzmi dobrze? Uważaj. Dopiero się rozkręcamy!"
+  }
+}

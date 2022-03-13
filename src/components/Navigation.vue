@@ -6,12 +6,12 @@
       :class="{ 'nav__menu--active': this.$store.state.openMobileNav }"
     >
       <ul class="nav__menu__list">
-        <li>Policz zyski</li>
-        <li>O produkcie</li>
-        <li>Kontakt</li>
-        <li>FAQ</li>
+        <li>{{ $t("nav.profits") }}</li>
+        <li>{{ $t("nav.aboutProduct") }}</li>
+        <li>{{ $t("nav.contact") }}</li>
+        <li>{{ $t("nav.faq") }}</li>
       </ul>
-      <button class="nav__menu__btn btn">KUP</button>
+      <button class="nav__menu__btn btn">{{ $t("nav.buy") }}</button>
     </div>
     <div class="nav__container">
       <div
@@ -19,7 +19,7 @@
         :class="{ 'lang--active': this.$store.state.openLangMenu }"
       >
         <div class="lang__current" @click="openLangMenu()">
-          {{ this.$store.state.currentLanguage }}
+          {{ this.$store.state.currentLanguage.toUpperCase() }}
           <img src="../assets/dropdown-arrow.png" alt="Dropdown arrow" />
         </div>
         <template v-for="item in this.$store.state.languages" :key="item">
@@ -28,7 +28,7 @@
             class="lang__select"
             @click="changeLang(item)"
           >
-            {{ item }}
+            {{ item.toUpperCase() }}
           </div>
         </template>
       </div>
@@ -43,7 +43,7 @@
           <span class="nav__container__hamburger__inner"></span>
         </span>
       </button>
-      <button class="nav__container__btn btn">KUP</button>
+      <button class="nav__container__btn btn">{{ $t("nav.buy") }}</button>
     </div>
   </nav>
 </template>
@@ -116,6 +116,11 @@ export default {
       align-items: center;
       margin-right: 2.1em;
       cursor: pointer;
+
+      @media screen and (min-width: 62em) {
+        right: 15em;
+        top: 0.43em;
+      }
 
       div {
         font-size: 1.6rem;
