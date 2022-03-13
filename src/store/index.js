@@ -5,6 +5,8 @@ export const store = createStore({
     return {
       openMobileNav: false,
       openLangMenu: false,
+      currentLanguage: 'PL',
+      languages: ['EN', 'DE', 'GB']
     }
   },
   mutations: {
@@ -14,6 +16,12 @@ export const store = createStore({
 
     openLangMenu (state) {
       state.openLangMenu = !state.openLangMenu;
+    },
+
+    changeLang(state, lang) {
+      state.languages.push(state.currentLanguage);
+      state.currentLanguage = lang;
+      state.languages = state.languages.filter(e => e !== state.currentLanguage);
     }
   }
 })
