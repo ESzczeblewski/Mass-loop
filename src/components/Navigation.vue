@@ -69,6 +69,10 @@ export default {
 @import "../design";
 
 .nav {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
+  animation-delay: 0.4s;
   max-width: 122em;
   margin: auto;
   position: fixed;
@@ -224,6 +228,7 @@ export default {
       }
 
       li {
+        position: relative;
         font-size: 1.5rem;
         margin-bottom: 4.8em;
         cursor: pointer;
@@ -232,6 +237,24 @@ export default {
           font-size: 1.6rem;
           margin-bottom: 0;
           margin-right: 2.95em;
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2px;
+            bottom: -0.5em;
+            left: 0;
+            background-color: $main-orange;
+            transform: scaleX(0);
+            transform-origin: top left;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover::before {
+            transform: scaleX(1);
+          }
         }
       }
     }

@@ -43,6 +43,9 @@ export default {
 @import "../design";
 
 .main {
+  opacity: 0;
+  animation: fade-in-right ease 0.5s forwards;
+  animation-delay: 0.4s;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,0 +1,31 @@
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateY(30em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grow-left {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100%, 20%, 50%, 80% {
+  transform: translateY(0)
+  }
+  40% {
+  transform: translateY(-1em)
+  }
+  60% {
+  transform: translateY(-0.2em)
+  }
+}

@@ -8,7 +8,7 @@
         <input
           @click="activate"
           :class="{ active: calcActive }"
-          type="number"
+          type="text"
           v-model="containers"
         />
       </div>
@@ -17,7 +17,7 @@
         <input
           @click="activate"
           :class="{ active: calcActive }"
-          type="number"
+          type="text"
           v-model="singleCost"
         />
       </div>
@@ -46,6 +46,20 @@ export default {
     activate() {
       this.calcActive = true;
     },
+
+    reveal() {
+      const item = document.querySelector(".calc");
+
+      const windowHeight = window.innerHeight;
+      const revealTop = item.getBoundingClientRect().top;
+      const revealPoint = 300;
+
+      if (revealTop < windowHeight - revealPoint) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    },
   },
 
   computed: {
@@ -56,6 +70,10 @@ export default {
             (this.containers * this.singleCost) / 5)
       );
     },
+  },
+
+  created() {
+    window.addEventListener("scroll", this.reveal);
   },
 };
 </script>
@@ -69,6 +87,9 @@ export default {
   align-items: center;
   padding: 0 2em;
   margin-top: 6em;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 1s ease;
 
   @media screen and (min-width: 64em) {
     margin-top: 9em;
@@ -163,5 +184,10 @@ export default {
       }
     }
   }
+}
+
+.calc.active {
+  opacity: 1;
+  transform: scale(1);
 }
 </style>
