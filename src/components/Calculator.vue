@@ -24,7 +24,7 @@
     </div>
     <div class="calc__result">
       <h4>{{ $t("calculator.savings1") }}</h4>
-      <h4 :class="{ active: calcActive }">
+      <h4 class="calc__result__savings" :class="{ active: calcActive }">
         <span>{{ calcResult }}</span> zł
       </h4>
       <h4>{{ $t("calculator.savings2") }}</h4>
