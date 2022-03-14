@@ -1,49 +1,52 @@
 <template>
   <nav class="nav">
-    <img class="nav__logo" src="../assets/logo.png" alt="Company logo" />
-    <div
-      class="nav__menu"
-      :class="{ 'nav__menu--active': this.$store.state.openMobileNav }"
-    >
-      <ul class="nav__menu__list">
-        <li>{{ $t("nav.profits") }}</li>
-        <li>{{ $t("nav.aboutProduct") }}</li>
-        <li>{{ $t("nav.contact") }}</li>
-        <li>{{ $t("nav.faq") }}</li>
-      </ul>
-      <button class="nav__menu__btn btn">{{ $t("nav.buy") }}</button>
-    </div>
-    <div class="nav__container">
+    <div class="wrapper">
+      <img class="nav__logo" src="../assets/logo.png" alt="Company logo" />
       <div
-        class="nav__container__lang"
-        :class="{ 'lang--active': this.$store.state.openLangMenu }"
+        class="nav__menu"
+        :class="{ 'nav__menu--active': this.$store.state.openMobileNav }"
       >
-        <div class="lang__current" @click="openLangMenu()">
-          {{ this.$store.state.currentLanguage.toUpperCase() }}
-          <img src="../assets/dropdown-arrow.png" alt="Dropdown arrow" />
-        </div>
-        <template v-for="item in this.$store.state.languages" :key="item">
-          <div
-            :class="{ active: this.$store.state.openLangMenu }"
-            class="lang__select"
-            @click="changeLang(item)"
-          >
-            {{ item.toUpperCase() }}
-          </div>
-        </template>
+        <ul class="nav__menu__list">
+          <li>{{ $t("nav.profits") }}</li>
+          <li>{{ $t("nav.aboutProduct") }}</li>
+          <li>{{ $t("nav.contact") }}</li>
+          <li>{{ $t("nav.faq") }}</li>
+        </ul>
+        <button class="nav__menu__btn btn">{{ $t("nav.buy") }}</button>
       </div>
-      <button
-        class="nav__container__hamburger"
-        :class="{
-          'nav__container__hamburger--active': this.$store.state.openMobileNav,
-        }"
-        @click="openNav()"
-      >
-        <span class="nav__container__hamburger__box">
-          <span class="nav__container__hamburger__inner"></span>
-        </span>
-      </button>
-      <button class="nav__container__btn btn">{{ $t("nav.buy") }}</button>
+      <div class="nav__container">
+        <div
+          class="nav__container__lang"
+          :class="{ 'lang--active': this.$store.state.openLangMenu }"
+        >
+          <div class="lang__current" @click="openLangMenu()">
+            {{ this.$store.state.currentLanguage.toUpperCase() }}
+            <img src="../assets/dropdown-arrow.png" alt="Dropdown arrow" />
+          </div>
+          <template v-for="item in this.$store.state.languages" :key="item">
+            <div
+              :class="{ active: this.$store.state.openLangMenu }"
+              class="lang__select"
+              @click="changeLang(item)"
+            >
+              {{ item.toUpperCase() }}
+            </div>
+          </template>
+        </div>
+        <button
+          class="nav__container__hamburger"
+          :class="{
+            'nav__container__hamburger--active':
+              this.$store.state.openMobileNav,
+          }"
+          @click="openNav()"
+        >
+          <span class="nav__container__hamburger__box">
+            <span class="nav__container__hamburger__inner"></span>
+          </span>
+        </button>
+        <button class="nav__container__btn btn">{{ $t("nav.buy") }}</button>
+      </div>
     </div>
   </nav>
 </template>
@@ -69,34 +72,38 @@ export default {
 @import "../design";
 
 .nav {
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
-  animation-delay: 0.4s;
-  max-width: 122em;
-  margin: auto;
   position: fixed;
   left: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 2.2em;
-  padding-bottom: 2.6em;
-  padding-left: 2em;
-  padding-right: 2em;
+  z-index: 999;
+  widows: 100vw;
   box-shadow: 0px 4px 24px -5px rgba(0, 0, 0, 0.15);
   background-color: $reg-white;
-  z-index: 999;
 
-  @media screen and (min-width: 62em) {
-    padding-top: 2em;
-    padding-bottom: 2em;
-  }
+  .wrapper {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
+    animation-delay: 0.4s;
+    max-width: 122em;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2.2em;
+    padding-bottom: 2.6em;
+    padding-left: 2em;
+    padding-right: 2em;
 
-  @media screen and (min-width: 80em) {
-    padding-left: 11em;
-    padding-right: 11em;
+    @media screen and (min-width: 62em) {
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+
+    @media screen and (min-width: 80em) {
+      padding-left: 11em;
+      padding-right: 11em;
+    }
   }
 
   &__logo {
