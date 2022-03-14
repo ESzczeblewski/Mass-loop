@@ -52,7 +52,7 @@ export default {
 
       const windowHeight = window.innerHeight;
       const revealTop = item.getBoundingClientRect().top;
-      const revealPoint = 300;
+      const revealPoint = 200;
 
       if (revealTop < windowHeight - revealPoint) {
         item.classList.add("active");
