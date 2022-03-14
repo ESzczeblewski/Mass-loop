@@ -1,5 +1,9 @@
 # mass-loop
 
+## Live
+
+https://mass-loop-paprica.netlify.app/
+
 ## Project setup
 ```
 npm install
