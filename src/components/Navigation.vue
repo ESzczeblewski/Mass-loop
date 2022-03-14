@@ -1,43 +1,52 @@
 <template>
   <nav class="nav">
-    <img class="nav__logo" src="../assets/logo.png" alt="Company logo" />
-    <div
-      class="nav__menu"
-      :class="{ 'nav__menu--active': this.$store.state.openMobileNav }"
-    >
-      <ul class="nav__menu__list">
-        <li>Policz zyski</li>
-        <li>O produkcie</li>
-        <li>Kontakt</li>
-        <li>FAQ</li>
-      </ul>
-      <button class="nav__menu__btn btn">KUP</button>
-    </div>
-    <div class="nav__container">
-      <div class="nav__container__lang">
-        <div @click="openLangMenu()">PL</div>
-        <img src="../assets/dropdown-arrow.png" alt="Dropdown arrow" />
-        <div
-          class="dropdown"
-          :class="{ active: this.$store.state.openLangMenu }"
-        >
-          <div @click="openLangMenu()">EN</div>
-          <div @click="openLangMenu()">DE</div>
-          <div @click="openLangMenu()">GB</div>
-        </div>
-      </div>
-      <button
-        class="nav__container__hamburger"
-        :class="{
-          'nav__container__hamburger--active': this.$store.state.openMobileNav,
-        }"
-        @click="openNav()"
+    <div class="wrapper">
+      <img class="nav__logo" src="../assets/logo.png" alt="Company logo" />
+      <div
+        class="nav__menu"
+        :class="{ 'nav__menu--active': this.$store.state.openMobileNav }"
       >
-        <span class="nav__container__hamburger__box">
-          <span class="nav__container__hamburger__inner"></span>
-        </span>
-      </button>
-      <button class="nav__container__btn btn">KUP</button>
+        <ul class="nav__menu__list">
+          <li>{{ $t("nav.profits") }}</li>
+          <li>{{ $t("nav.aboutProduct") }}</li>
+          <li>{{ $t("nav.contact") }}</li>
+          <li>{{ $t("nav.faq") }}</li>
+        </ul>
+        <button class="nav__menu__btn btn">{{ $t("nav.buy") }}</button>
+      </div>
+      <div class="nav__container">
+        <div
+          class="nav__container__lang"
+          :class="{ 'lang--active': this.$store.state.openLangMenu }"
+        >
+          <div class="lang__current" @click="openLangMenu()">
+            {{ this.$store.state.currentLanguage.toUpperCase() }}
+            <img src="../assets/dropdown-arrow.png" alt="Dropdown arrow" />
+          </div>
+          <template v-for="item in this.$store.state.languages" :key="item">
+            <div
+              :class="{ active: this.$store.state.openLangMenu }"
+              class="lang__select"
+              @click="changeLang(item)"
+            >
+              {{ item.toUpperCase() }}
+            </div>
+          </template>
+        </div>
+        <button
+          class="nav__container__hamburger"
+          :class="{
+            'nav__container__hamburger--active':
+              this.$store.state.openMobileNav,
+          }"
+          @click="openNav()"
+        >
+          <span class="nav__container__hamburger__box">
+            <span class="nav__container__hamburger__inner"></span>
+          </span>
+        </button>
+        <button class="nav__container__btn btn">{{ $t("nav.buy") }}</button>
+      </div>
     </div>
   </nav>
 </template>
@@ -54,7 +63,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["openNav", "openLangMenu"]),
+    ...mapMutations(["openNav", "openLangMenu", "changeLang"]),
   },
 };
 </script>
@@ -63,30 +72,38 @@ export default {
 @import "../design";
 
 .nav {
-  max-width: 122em;
-  margin: auto;
   position: fixed;
   left: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 2.2em;
-  padding-bottom: 2.6em;
-  padding-left: 2em;
-  padding-right: 2em;
+  z-index: 999;
+  widows: 100vw;
   box-shadow: 0px 4px 24px -5px rgba(0, 0, 0, 0.15);
   background-color: $reg-white;
-  z-index: 999;
 
-  @media screen and (min-width: 62em) {
-    padding-top: 2em;
-    padding-bottom: 2em;
-  }
+  .wrapper {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
+    animation-delay: 0.4s;
+    max-width: 122em;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2.2em;
+    padding-bottom: 2.6em;
+    padding-left: 2em;
+    padding-right: 2em;
 
-  @media screen and (min-width: 80em) {
-    padding-left: 11em;
-    padding-right: 11em;
+    @media screen and (min-width: 62em) {
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+
+    @media screen and (min-width: 80em) {
+      padding-left: 11em;
+      padding-right: 11em;
+    }
   }
 
   &__logo {
@@ -98,14 +115,23 @@ export default {
   }
 
   &__container {
+    position: relative;
     display: flex;
 
     &__lang {
-      position: relative;
+      position: absolute;
+      top: -0.5em;
+      right: 3.5em;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      margin-right: 3.3em;
+      margin-right: 2.1em;
       cursor: pointer;
+
+      @media screen and (min-width: 62em) {
+        right: 15em;
+        top: 0.43em;
+      }
 
       div {
         font-size: 1.6rem;
@@ -113,30 +139,43 @@ export default {
 
       > div:first-of-type {
         margin-right: 0.3em;
+        display: flex;
+        align-items: center;
       }
 
-      .dropdown {
-        background-color: $reg-white;
-        position: absolute;
-        left: -1.2em;
-        top: 2.2em;
-        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.2s ease;
+      .lang__current,
+      .lang__select {
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
+        padding-left: 0.1em;
+        padding-right: 0.6em;
+        margin-right: 0.7em;
+        margin-left: 0.7em;
+      }
 
-        > * {
-          padding: 0.75em 0.6em;
-          margin-right: 0.7em;
-          margin-left: 0.7em;
-          border-top: 1px solid #c2c2c2;
+      .lang__current {
+        img {
+          margin-left: 0.5em;
         }
       }
+
+      .lang__select {
+        padding-right: 1.2em;
+        border-top: 1px solid #c2c2c2;
+        opacity: 0;
+        pointer-events: none;
+      }
+
       .active {
         opacity: 1;
         pointer-events: all;
         transition: all 0.2s ease;
       }
+    }
+
+    .lang--active {
+      background-color: $reg-white;
+      box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
     }
 
     &__btn {
@@ -196,6 +235,7 @@ export default {
       }
 
       li {
+        position: relative;
         font-size: 1.5rem;
         margin-bottom: 4.8em;
         cursor: pointer;
@@ -204,6 +244,24 @@ export default {
           font-size: 1.6rem;
           margin-bottom: 0;
           margin-right: 2.95em;
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2px;
+            bottom: -0.5em;
+            left: 0;
+            background-color: $main-orange;
+            transform: scaleX(0);
+            transform-origin: top left;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover::before {
+            transform: scaleX(1);
+          }
         }
       }
     }

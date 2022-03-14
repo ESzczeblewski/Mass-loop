@@ -1,3 +1,5 @@
+@import './animations';
+
 .btn {
   background-color: $main-orange;
   padding: 0;
@@ -11,4 +13,12 @@
   text-transform: uppercase;
   box-shadow: 0em 1.25em 3.6em -0.6em rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.btn:hover {
+  animation-name: bounce;
 }

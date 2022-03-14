@@ -1,8 +1,8 @@
 <template>
   <section class="buy">
-    <p>To na co wydasz zaoszczędzoną gotówkę?</p>
-    <button class="btn">KUP <span>8499 zł</span></button>
-    <h3>Brzmi dobrze? Uważaj. Dopiero się rozkręcamy!</h3>
+    <p>{{ $t("footer.paragraph") }}</p>
+    <button class="btn">{{ $t("footer.buy") }} <span>8499 zł</span></button>
+    <h3>{{ $t("footer.summary") }}</h3>
   </section>
 </template>
 

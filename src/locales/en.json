@@ -1,0 +1,27 @@
+{
+  "heading": "A smart crusher that turns glass into sand.",
+  "nav": {
+    "profits": "Count your profits",
+    "aboutProduct": "About the product",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "buy": "BUY"
+  },
+  "description": {
+    "heading": "Pay 5 times less for the disposal of glass waste.",
+    "paragraph": "The crusher reduces the size of glass rubbish, and you pay FI-VE TI-MES lower bills for their disposal."
+  },
+  "calculator": {
+    "heading": "How much will you save?",
+    "paragraph": "The count is simple.",
+    "firstQuestion": "How many glass containers do you fill per month?",
+    "secondQuestion": "How much do you pay to export one glass container?",
+    "savings1": "Thanks to the crusher you will save",
+    "savings2": "yearly."
+  },
+  "footer": {
+    "paragraph": "What will you spend the saved cash on?",
+    "buy": "BUY",
+    "summary": "Sounds good? Be careful. We're just getting started!"
+  }
+}
